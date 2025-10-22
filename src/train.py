@@ -34,7 +34,8 @@ with open("models/model.pkl", "wb") as f:
 
 
 mlruns_path = r"D:\week42\mlops-demo\mlruns"
-mlflow.set_tracking_uri(f"file:///{mlruns_path.replace('\\', '/')}")
+mlruns_path_unix = mlruns_path.replace('\\', '/')
+mlflow.set_tracking_uri(f"file:///{mlruns_path_unix}")
 mlflow.set_experiment("Default")
 
 try:
@@ -46,6 +47,7 @@ finally:
     mlflow.end_run()
 
 print("✅ Model trained and logged with MLflow!")
+
 
 
 
