@@ -3,3 +3,8 @@ outs:
   size: 114
   hash: md5
   path: data.csv
+- name: Install DVC
+  run: pip install dvc
+
+- name: Pull DVC data
+  run: dvc pull
