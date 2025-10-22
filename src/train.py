@@ -30,13 +30,18 @@ with open("models/model.pkl", "wb") as f:
     pickle.dump(model, f)
 
 # Log metrics with MLflow
-mlflow.start_run()
-mlflow.log_param("model_type", "DecisionTree")
-mlflow.log_metric("accuracy", model.score(X, y))
-mlflow.log_artifact("models/model.pkl")
-mlflow.end_run()
+
+
+try:
+    mlflow.start_run()
+    mlflow.log_param("model_type", "DecisionTree")
+    mlflow.log_metric("accuracy", model.score(X, y))
+    mlflow.log_artifact("models/model.pkl")
+finally:
+    mlflow.end_run()
 
 print("✅ Model trained and logged with MLflow!")
+
 
 
 
