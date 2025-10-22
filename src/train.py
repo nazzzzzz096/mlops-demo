@@ -31,6 +31,8 @@ with open("models/model.pkl", "wb") as f:
 
 # Log metrics with MLflow
 
+mlflow.set_tracking_uri("file:/full/absolute/path/to/mlruns")
+mlflow.set_experiment("Default")
 
 try:
     mlflow.start_run()
@@ -41,6 +43,7 @@ finally:
     mlflow.end_run()
 
 print("✅ Model trained and logged with MLflow!")
+
 
 
 
