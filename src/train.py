@@ -6,7 +6,12 @@ import pickle
 import mlflow
 
 # Load data
-df = pd.read_csv("data/data.csv")
+import os
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(script_dir, '..', 'data', 'data.csv')
+
+df = pd.read_csv(data_path, encoding='ISO-8859-1')  # or detect encoding
 
 # Split data
 X = df[["feature1", "feature2"]]
@@ -28,5 +33,6 @@ mlflow.log_artifact("models/model.pkl")
 mlflow.end_run()
 
 print("✅ Model trained and logged with MLflow!")
+
 
 
