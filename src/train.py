@@ -25,6 +25,7 @@ model = DecisionTreeClassifier()
 model.fit(X, y)
 
 # Save model
+os.makedirs("models", exist_ok=True)
 with open("models/model.pkl", "wb") as f:
     pickle.dump(model, f)
 
@@ -36,6 +37,7 @@ mlflow.log_artifact("models/model.pkl")
 mlflow.end_run()
 
 print("✅ Model trained and logged with MLflow!")
+
 
 
 
