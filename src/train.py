@@ -13,6 +13,7 @@ data_path = os.path.join(script_dir, '..', 'data', 'data.csv')
 
  # or detect encoding
 df = pd.read_csv(data_path)
+print(df.columns)
 
 # Split data
 X = df[["feature1", "feature2"]]
@@ -34,6 +35,7 @@ mlflow.log_artifact("models/model.pkl")
 mlflow.end_run()
 
 print("✅ Model trained and logged with MLflow!")
+
 
 
 
