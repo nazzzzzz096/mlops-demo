@@ -12,7 +12,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(script_dir, '..', 'data', 'data.csv')
 
  # or detect encoding
-df = pd.read_csv(data_path, encoding='utf-16')
+df = pd.read_csv(data_path)
 
 print(df.columns)
 
@@ -37,6 +37,7 @@ mlflow.log_artifact("models/model.pkl")
 mlflow.end_run()
 
 print("✅ Model trained and logged with MLflow!")
+
 
 
 
